@@ -15,14 +15,13 @@ void vertex() {
 
 void fragment() {
 	vec4 tex_color = texture(TEXTURE, UV);
-    vec4 color = mix(tex_color, gold, (goldeness / 100.0) * maxGoldeness); // Blend based on goldenness
+    vec4 color = mix(tex_color, gold, (goldeness / 100.0) * maxGoldeness);
 
     float shine_position = sin((UV.y + UV.x * shine_slope) / shine_frequency + TIME * shine_speed) - 0.9;
     float shine_effect = smoothstep(shine_hardness, shine_size, shine_position);
 
-    // Create shine color
     vec4 shine_color = tex_color.a * vec4(1.0, 1.0, 1.0, 1.0) * shine_intensity * shine_effect * 
-                       pow((goldeness / 100.0), 3.0); // Cube for more intense shine
+                       pow((goldeness / 100.0), 3.0);
     COLOR = (color + shine_color) * tex_color.a;
 }
 

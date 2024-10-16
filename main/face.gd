@@ -66,5 +66,3 @@ func _input(event):
 		match event.keycode:
 			key:
 				flipped = false
-
-
