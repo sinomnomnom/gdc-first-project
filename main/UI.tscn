@@ -60,4 +60,22 @@ scroll_active = false
 tab_size = 0
 text_direction = 3
 
+[node name="PopupPanel" type="PopupPanel" parent="VBoxContainer"]
+title = "Credits"
+initial_position = 2
+size = Vector2i(440, 300)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/PopupPanel"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 436.0
+offset_bottom = 296.0
+bbcode_enabled = true
+text = "[center]Game Design Club 2024[/center]
+[wave]MR Salzwedel[/wave]
+....
+...
+"
+
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]

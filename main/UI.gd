@@ -8,8 +8,10 @@ var players = []
 var keys = []
 const TEST_FACE = preload("res://main/test_face.tscn")
 @onready var rich_text_label = $VBoxContainer/RichTextLabel
+@onready var popup_panel = $VBoxContainer/PopupPanel
 
 func _input(event: InputEvent):
+	popup_panel.hide()
 	if playerCount >= maxplayers:
 		return
 	if event is InputEventKey and event.is_pressed():
@@ -32,3 +34,8 @@ func _on_play_pressed():
 	if playerCount >=2:
 		emit_signal("gameStart")
 		hide()
+
+
+func _on_credits_pressed():
+	popup_panel.show()
+	

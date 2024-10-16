@@ -20,7 +20,7 @@ shader_parameter/shine_slope = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n2lr7"]
 shader = ExtResource("4_gsbvy")
-shader_parameter/redness = 0.0
+shader_parameter/redness = 100.0
 shader_parameter/color1 = Vector4(1, 0, 0, 1)
 shader_parameter/color2 = Vector4(1, 0, 0.5, 1)
 shader_parameter/maxRedness = 0.6

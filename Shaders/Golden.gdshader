@@ -2,12 +2,12 @@ shader_type canvas_item;
 uniform vec4 gold = vec4(1.0, 0.9, 0.0, 1.0);
 uniform float goldeness = 0;
 uniform float maxGoldeness = 0.4;
-uniform float shine_speed = 1;
+uniform float shine_speed = 2;
 uniform float shine_intensity = 0.9;
-uniform float shine_hardness = 1;
-uniform float shine_size = 1;
-uniform float shine_frequency = 1;
-uniform float shine_slope = .4;
+uniform float shine_hardness = 0;
+uniform float shine_size = 0.2;
+uniform float shine_frequency = 5;
+uniform float shine_slope = 1;
 
 void vertex() {
 	// Called for every vertex the material is visible on.
