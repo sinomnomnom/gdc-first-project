@@ -1,23 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5f4cstxvp2iw"]
+[gd_scene load_steps=2 format=3 uid="uid://ksx0feogn8wg"]
 
-[ext_resource type="PackedScene" uid="uid://cqbb5qlagrof7" path="res://player/player.tscn" id="1_y6fxw"]
-[ext_resource type="PackedScene" uid="uid://6wyjbb85vfis" path="res://platform/platform.tscn" id="2_fbc27"]
+[ext_resource type="PackedScene" uid="uid://dn7upyw3qc08n" path="res://main/UI.tscn" id="2_hd3cp"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_y6fxw")]
-position = Vector2(435, 91)
+[node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="terrain" type="Node" parent="."]
-
-[node name="Platform" parent="terrain" instance=ExtResource("2_fbc27")]
-position = Vector2(849, 503)
-
-[node name="Platform2" parent="terrain" instance=ExtResource("2_fbc27")]
-position = Vector2(549, 220)
-
-[node name="Platform3" parent="terrain" instance=ExtResource("2_fbc27")]
-position = Vector2(152, 330)
-
-[node name="Platform4" parent="terrain" instance=ExtResource("2_fbc27")]
-position = Vector2(427, 454)
+[node name="UI" parent="." instance=ExtResource("2_hd3cp")]
+z_index = 2

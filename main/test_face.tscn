@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://bf5njs7wqvqc0"]
+
+[ext_resource type="Script" path="res://main/face.gd" id="1_w1rut"]
+[ext_resource type="Shader" path="res://Shaders/Golden.gdshader" id="2_mvmek"]
+[ext_resource type="Texture2D" uid="uid://n8o8q11bhr1u" path="res://Temporary Assets/Beard.png" id="3_l4ti2"]
+[ext_resource type="Shader" path="res://Shaders/Redness.gdshader" id="4_gsbvy"]
+[ext_resource type="Texture2D" uid="uid://ddxpxwvcwkok6" path="res://Temporary Assets/Base Face.png" id="5_yedac"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_07leb"]
+shader = ExtResource("2_mvmek")
+shader_parameter/gold = Vector4(1, 0.9, 0, 1)
+shader_parameter/goldeness = 100.0
+shader_parameter/maxGoldeness = 0.4
+shader_parameter/shine_speed = 2.0
+shader_parameter/shine_intensity = 0.9
+shader_parameter/shine_hardness = 0.0
+shader_parameter/shine_size = 0.2
+shader_parameter/shine_frequency = 5.0
+shader_parameter/shine_slope = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n2lr7"]
+shader = ExtResource("4_gsbvy")
+shader_parameter/redness = 0.0
+shader_parameter/color1 = Vector4(1, 0, 0, 1)
+shader_parameter/color2 = Vector4(1, 0, 0.5, 1)
+shader_parameter/maxRedness = 0.6
+
+[node name="Test Face" type="Node2D" node_paths=PackedStringArray("beard", "head")]
+script = ExtResource("1_w1rut")
+beard = NodePath("beard")
+head = NodePath("face")
+beardShader = ExtResource("2_mvmek")
+headShader = ExtResource("4_gsbvy")
+
+[node name="beard" type="Sprite2D" parent="."]
+z_index = 1
+material = SubResource("ShaderMaterial_07leb")
+position = Vector2(0, 50)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_l4ti2")
+
+[node name="face" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_n2lr7")
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_yedac")
