@@ -15,8 +15,8 @@ var goldRate = 4
 @export var headShader : Shader
 var headMaterial
 var beardMaterial
-var spring = 30
-var damp = 5
+var spring = 100
+var damp = 15
 var velocity = 0
 var displacement = 0
 var goalRotation
