@@ -58,6 +58,7 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_m2unb")
 
 [node name="DropletEmitter" parent="Node2D/face" instance=ExtResource("5_kbnaw")]
+z_index = 2
 position = Vector2(0, -236.667)
 
 [node name="beard" type="Sprite2D" parent="Node2D"]

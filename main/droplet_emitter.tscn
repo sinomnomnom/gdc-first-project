@@ -4,15 +4,13 @@
 
 [node name="DropletEmitter" type="CPUParticles2D"]
 emitting = false
-amount = 6
+amount = 3
 one_shot = true
 randomness = 0.54
 draw_order = 1
 texture = ExtResource("1_ce5v4")
-emission_shape = 5
-emission_points = PackedVector2Array()
-emission_normals = PackedVector2Array()
-emission_colors = PackedColorArray()
+emission_shape = 1
+emission_sphere_radius = 128.0
 particle_flag_align_y = true
 direction = Vector2(0, -1)
 spread = 81.36

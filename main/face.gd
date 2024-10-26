@@ -7,7 +7,7 @@ var goldeness: float = 0
 var redness: float = 0
 var flipTime = 1
 var playing = false
-var bloodRate = 10
+var bloodRate = 15
 var goldRate = .5
 @export var bottle: oil_bottle
 @export var faceGraphics: Node2D
@@ -34,8 +34,8 @@ var dead = false
 var won = false
 var godrayalpha : float = 0
 var ascendRate: float = 15
-func _ready():
 
+func _ready():
 	headMaterial = ShaderMaterial.new()
 	headMaterial.shader = headShader
 	head.material = headMaterial
@@ -57,7 +57,7 @@ func _process(delta):
 		godrayalpha += delta/3
 		godrayMaterial.set_shader_parameter("alpha",godrayalpha)
 		faceGraphics.position.y -= ascendRate*delta
-		faceGraphics.position.x -=ascendRate*delta*.2
+		faceGraphics.position.x -=ascendRate*delta*.3
 		goalRotation = 0
 		spring = 15
 		var force = - spring * (displacement - goalRotation) - damp * velocity
@@ -78,10 +78,7 @@ func _process(delta):
 		else:
 			redness-= delta*bloodRate
 			goalRotation = 0
-		
 		redness = clampf(redness,0,100)
-		
-		
 		updateShaders()
 		var force = - spring * (displacement - goalRotation) - damp * velocity
 		velocity += force * delta
