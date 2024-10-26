@@ -1,6 +1,9 @@
 extends Control
 @onready var main = $".."
 signal gameStart
+signal startPour
+signal stopPour
+var pouring
 var gameStarted = false
 var playerCount =0
 var maxplayers = 4
@@ -35,8 +38,23 @@ func _input(event: InputEvent):
 func _on_play_pressed():
 	if playerCount >=2:
 		emit_signal("gameStart")
+		pouring = true
+		emit_signal("startPour")
 		gameStarted = true
 		hide()
 
 func _on_credits_pressed():
 	popup_panel.show()
+
+func _process(delta):
+	if gameStarted:
+		if pouring:
+			if(randi_range(0,100)<delta*75):
+				pouring = false
+				emit_signal("stopPour")
+		else:
+			if(randi_range(0,100)<delta*150):
+				pouring = true
+				emit_signal("startPour")
+		
+		

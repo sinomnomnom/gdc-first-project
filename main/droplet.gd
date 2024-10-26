@@ -1,6 +1,6 @@
 extends Area2D
 class_name droplet
-var speed: int = 100
+var speed: int = 400
 var timer: float = 0
 var lifetime: int = 5
 func _process(delta):

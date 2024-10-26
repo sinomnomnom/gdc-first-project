@@ -34,7 +34,7 @@ var won = false
 var godrayalpha : float = 0
 var ascendRate: float = 15
 func _ready():
-	bottle.pouring = true
+
 	headMaterial = ShaderMaterial.new()
 	headMaterial.shader = headShader
 	head.material = headMaterial

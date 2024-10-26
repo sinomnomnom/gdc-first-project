@@ -12,15 +12,20 @@ var goalRotation
 @export var sprite: Sprite2D
 @export var oil: String
 var time_since_last_spawn: float = 0
-var spawn_delay: float = .1
+var spawn_delay: float = .05
+@onready var control = $"../../UI"
+func _ready():
+	control.connect("startPour",startPour)
+	control.connect("stopPour",stopPour)
 
 func _process(delta):
 	time_since_last_spawn += delta
 	if pouring:
 		goalRotation = PI * 2 / 3
-		if time_since_last_spawn >= spawn_delay:
-			spawn_droplet()
-			time_since_last_spawn = 0.0
+		if sprite.rotation >= PI* 2/3:
+			if time_since_last_spawn >= spawn_delay:
+				spawn_droplet()
+				time_since_last_spawn = 0.0
 	else:
 		goalRotation = 0
 	
@@ -36,3 +41,9 @@ func spawn_droplet():
 	droplet_instance.global_position = spout.global_position 
 	 
 	print("drip")
+
+func startPour():
+	pouring = true
+
+func stopPour():
+	pouring = false
