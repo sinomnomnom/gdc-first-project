@@ -20,6 +20,7 @@ var goldRate = .5
 @export var droplets: CPUParticles2D
 @export var godrays: ColorRect
 @export var godrayShader : Shader
+@export var doveEmitter : CPUParticles2D
 var godrayMaterial
 var headMaterial
 var beardMaterial
@@ -128,3 +129,4 @@ func win():
 	goldeness = 100
 	updateShaders()
 	won = true
+	doveEmitter.emitting = true

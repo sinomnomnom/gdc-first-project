@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bf5njs7wqvqc0"]
+[gd_scene load_steps=15 format=3 uid="uid://bf5njs7wqvqc0"]
 
 [ext_resource type="Script" path="res://main/face.gd" id="1_w1rut"]
 [ext_resource type="Shader" path="res://Shaders/Golden.gdshader" id="2_mvmek"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://m0ber3xwknd5" path="res://main/oil_bottle.tscn" id="6_kndta"]
 [ext_resource type="PackedScene" uid="uid://cog06iq8eby1r" path="res://main/sparkle_emitter.tscn" id="7_rfofm"]
 [ext_resource type="PackedScene" uid="uid://dty83indh14c2" path="res://main/god_rays.tscn" id="9_o0fyl"]
+[ext_resource type="PackedScene" uid="uid://c8vex0imoodec" path="res://Assets/dove_emitter.tscn" id="9_pyxep"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n2lr7"]
 shader = ExtResource("4_gsbvy")
@@ -34,7 +35,7 @@ shader_parameter/shine_slope = 1.0
 radius = 53.06
 height = 134.84
 
-[node name="Test Face" type="Node2D" node_paths=PackedStringArray("bottle", "faceGraphics", "beard", "head", "collider", "sparkles", "droplets", "godrays")]
+[node name="Test Face" type="Node2D" node_paths=PackedStringArray("bottle", "faceGraphics", "beard", "head", "collider", "sparkles", "droplets", "godrays", "doveEmitter")]
 script = ExtResource("1_w1rut")
 bottle = NodePath("oil_bottle")
 faceGraphics = NodePath("Node2D")
@@ -47,6 +48,7 @@ sparkles = NodePath("Node2D/beard/sparkle_emitter")
 droplets = NodePath("Node2D/face/DropletEmitter")
 godrays = NodePath("GodRays")
 godrayShader = ExtResource("4_qjd10")
+doveEmitter = NodePath("Node2D/CPUParticles2D")
 
 [node name="Node2D" type="Node2D" parent="."]
 
@@ -74,6 +76,9 @@ color = Color(1, 1, 1, 0.486275)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
 shape = SubResource("CapsuleShape2D_i66mc")
+
+[node name="CPUParticles2D" parent="Node2D" instance=ExtResource("9_pyxep")]
+z_index = -2
 
 [node name="oil_bottle" parent="." instance=ExtResource("6_kndta")]
 position = Vector2(-53, -333)

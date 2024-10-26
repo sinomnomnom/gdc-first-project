@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8vex0imoodec"]
+
+[ext_resource type="Texture2D" uid="uid://bq8g1x3rx8n21" path="res://Assets/doves.png" id="1_ugtcs"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_tud8c"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[node name="CPUParticles2D" type="CPUParticles2D"]
+material = SubResource("CanvasItemMaterial_tud8c")
+emitting = false
+amount = 20
+lifetime = 10.0
+texture = ExtResource("1_ugtcs")
+particle_flag_align_y = true
+direction = Vector2(0, 0)
+spread = 172.35
+gravity = Vector2(0, -100)
+initial_velocity_min = 85.46
+initial_velocity_max = 343.43
+anim_speed_min = 10.0
+anim_speed_max = 10.0
+anim_offset_max = 1.0
