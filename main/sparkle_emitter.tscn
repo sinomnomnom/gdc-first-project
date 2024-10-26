@@ -1,27 +1,33 @@
 [gd_scene load_steps=3 format=3 uid="uid://cog06iq8eby1r"]
 
-[ext_resource type="Texture2D" uid="uid://cdmolmhtyni6t" path="res://Assets/sparkle.png" id="1_x54oc"]
+[ext_resource type="Texture2D" uid="uid://btv4uiu3p8ulb" path="res://Assets/SparkleSheet.png" id="1_n2206"]
 
-[sub_resource type="Curve" id="Curve_7n5au"]
-min_value = -1.0
-_data = [Vector2(0.0280899, -1), 0.0, 0.0, 0, 0, Vector2(0.488764, -0.318681), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 3
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_j81d1"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
 [node name="sparkle_emitter" type="CPUParticles2D"]
+material = SubResource("CanvasItemMaterial_j81d1")
 emitting = false
+amount = 3
+lifetime = 0.5
 one_shot = true
 explosiveness = 0.28
 local_coords = true
 draw_order = 1
-texture = ExtResource("1_x54oc")
+texture = ExtResource("1_n2206")
 emission_shape = 1
 emission_sphere_radius = 128.0
+direction = Vector2(0, 0)
 spread = 180.0
 gravity = Vector2(0, 0)
-initial_velocity_min = 181.82
-initial_velocity_max = 181.82
+initial_velocity_min = 464.65
+initial_velocity_max = 464.65
 linear_accel_min = -100.0
 linear_accel_max = -78.78
 hue_variation_min = 1.0
 hue_variation_max = 1.0
-hue_variation_curve = SubResource("Curve_7n5au")
+anim_speed_min = 1.0
+anim_speed_max = 1.0

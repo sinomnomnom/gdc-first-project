@@ -2,7 +2,7 @@ shader_type canvas_item;
 uniform float redness;
 uniform vec4 color1 = vec4(1,0,0,1);
 uniform vec4 color2 = vec4(1,0,.5,1);
-uniform float maxRedness = 0.6;
+uniform float maxRedness = 0.8;
 void vertex() {
 	// Called for every vertex the material is visible on.
 }

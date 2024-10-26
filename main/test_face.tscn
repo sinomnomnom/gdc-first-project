@@ -71,7 +71,7 @@ texture = ExtResource("4_j8ice")
 [node name="sparkle_emitter" parent="Node2D/beard" instance=ExtResource("7_rfofm")]
 position = Vector2(0, 230)
 scale = Vector2(3, 3)
-color = Color(1, 1, 1, 0.486275)
+color = Color(1, 1, 1, 0.890196)
 
 [node name="Area2D" type="Area2D" parent="Node2D"]
 

@@ -1,6 +1,7 @@
 extends Node2D
 class_name face
 
+signal winGame
 var key: int = KEY_Q
 var flipped: bool
 var goldeness: float = 0
@@ -46,6 +47,7 @@ func _ready():
 	godrayMaterial.shader = godrayShader
 	godrays.material = godrayMaterial
 	control.connect("gameStart",start)
+	control.connect("gameOver",gameOver)
 
 func start():
 	playing = true
@@ -65,7 +67,7 @@ func _process(delta):
 		displacement += velocity * delta
 		faceGraphics.rotation = displacement 
 		godrayalpha = clamp(godrayalpha,0,0.8)
-		
+		return
 	if dead:
 		faceGraphics.position.y -= velocity*delta
 		velocity -= 1000*delta
@@ -122,8 +124,14 @@ func die():
 	
 
 func win():
+	won = true
+	emit_signal("winGame")
 	redness = 0
 	goldeness = 100
 	updateShaders()
-	won = true
+	
 	doveEmitter.emitting = true
+
+func gameOver():
+	if not won:
+		die()
