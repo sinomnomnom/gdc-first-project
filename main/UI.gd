@@ -14,6 +14,8 @@ func _input(event: InputEvent):
 	popup_panel.hide()
 	if playerCount >= maxplayers:
 		return
+	if gameStarted:
+		return
 	if event is InputEventKey and event.is_pressed():
 		if event.keycode in keys:
 			return
@@ -33,6 +35,7 @@ func _input(event: InputEvent):
 func _on_play_pressed():
 	if playerCount >=2:
 		emit_signal("gameStart")
+		gameStarted = true
 		hide()
 
 func _on_credits_pressed():

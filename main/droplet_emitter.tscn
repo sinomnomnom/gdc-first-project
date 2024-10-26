@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqmqcf0mqmjpj"]
+
+[ext_resource type="Texture2D" uid="uid://bs0l3atpye0w1" path="res://Assets/oil_drop.png" id="1_ce5v4"]
+
+[node name="DropletEmitter" type="CPUParticles2D"]
+emitting = false
+amount = 6
+one_shot = true
+randomness = 0.54
+draw_order = 1
+texture = ExtResource("1_ce5v4")
+emission_shape = 5
+emission_points = PackedVector2Array()
+emission_normals = PackedVector2Array()
+emission_colors = PackedColorArray()
+particle_flag_align_y = true
+direction = Vector2(0, -1)
+spread = 81.36
+initial_velocity_min = 383.84
+initial_velocity_max = 606.06
+angular_velocity_min = 72.73
+angular_velocity_max = 160.0
+scale_amount_min = 0.3
+scale_amount_max = 0.5

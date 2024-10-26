@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://cog06iq8eby1r"]
+
+[ext_resource type="Texture2D" uid="uid://cdmolmhtyni6t" path="res://Assets/sparkle.png" id="1_x54oc"]
+
+[sub_resource type="Curve" id="Curve_7n5au"]
+min_value = -1.0
+_data = [Vector2(0.0280899, -1), 0.0, 0.0, 0, 0, Vector2(0.488764, -0.318681), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="sparkle_emitter" type="CPUParticles2D"]
+emitting = false
+one_shot = true
+explosiveness = 0.28
+local_coords = true
+draw_order = 1
+texture = ExtResource("1_x54oc")
+emission_shape = 1
+emission_sphere_radius = 128.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 181.82
+initial_velocity_max = 181.82
+linear_accel_min = -100.0
+linear_accel_max = -78.78
+hue_variation_min = 1.0
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_7n5au")

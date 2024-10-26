@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://n8o8q11bhr1u"
-path="res://.godot/imported/Beard.png-563bab489522693efb29d0b1b641292a.ctex"
+uid="uid://cdmolmhtyni6t"
+path="res://.godot/imported/sparkle.png-c4553a484653d07810acdd284e8a5140.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Temporary Assets/Beard.png"
-dest_files=["res://.godot/imported/Beard.png-563bab489522693efb29d0b1b641292a.ctex"]
+source_file="res://Assets/sparkle.png"
+dest_files=["res://.godot/imported/sparkle.png-c4553a484653d07810acdd284e8a5140.ctex"]
 
 [params]
 

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://m0ber3xwknd5"]
+
+[ext_resource type="Script" path="res://main/oil_bottle.gd" id="1_no0bi"]
+[ext_resource type="Texture2D" uid="uid://dbaitv35awif7" path="res://Assets/refined-sunflower-oil.png" id="2_3yja1"]
+
+[node name="oil_bottle" type="Node2D" node_paths=PackedStringArray("spout", "sprite")]
+script = ExtResource("1_no0bi")
+spout = NodePath("Sprite2D/Node2D")
+sprite = NodePath("Sprite2D")
+oil = "res://main/droplet.tscn"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+rotation = -6.15229
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_3yja1")
+
+[node name="Node2D" type="Node2D" parent="Sprite2D"]
+position = Vector2(0, -700)
+scale = Vector2(0.1, 0.1)
