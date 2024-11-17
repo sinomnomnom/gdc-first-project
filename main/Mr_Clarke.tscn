@@ -1,0 +1,143 @@
+[gd_scene load_steps=26 format=3 uid="uid://ce2mnaxnn1bv1"]
+
+[ext_resource type="Script" path="res://main/face.gd" id="1_hnvj2"]
+[ext_resource type="Shader" path="res://Shaders/Golden.gdshader" id="2_7p3yx"]
+[ext_resource type="Shader" path="res://Shaders/Redness.gdshader" id="3_opi4k"]
+[ext_resource type="Shader" path="res://Shaders/thelightofgodskingdom.gdshader" id="4_adk06"]
+[ext_resource type="Texture2D" uid="uid://q7v2c6l2tuq7" path="res://Assets/Santa Clarke/IMG_2506.PNG" id="5_p046w"]
+[ext_resource type="PackedScene" uid="uid://bqmqcf0mqmjpj" path="res://main/droplet_emitter.tscn" id="6_x2d8l"]
+[ext_resource type="Texture2D" uid="uid://d3be5p5wqouhm" path="res://Assets/Santa Clarke/IMG_2507.PNG" id="7_uf7mw"]
+[ext_resource type="Texture2D" uid="uid://cetra2imejdg5" path="res://Assets/Santa Clarke/IMG_2508.PNG" id="8_1l6bh"]
+[ext_resource type="PackedScene" uid="uid://cog06iq8eby1r" path="res://main/sparkle_emitter.tscn" id="8_l71ci"]
+[ext_resource type="Texture2D" uid="uid://2lcs6enx1u5b" path="res://Assets/Santa Clarke/IMG_2509.PNG" id="9_cmaf6"]
+[ext_resource type="PackedScene" uid="uid://c8vex0imoodec" path="res://Assets/dove_emitter.tscn" id="9_e40qe"]
+[ext_resource type="Texture2D" uid="uid://d1afm4jlyi33i" path="res://Assets/Santa Clarke/IMG_2510.PNG" id="10_533np"]
+[ext_resource type="PackedScene" uid="uid://m0ber3xwknd5" path="res://main/oil_bottle.tscn" id="10_v3civ"]
+[ext_resource type="PackedScene" uid="uid://dty83indh14c2" path="res://main/god_rays.tscn" id="11_1cp2n"]
+[ext_resource type="Texture2D" uid="uid://dqkx130jsbh0r" path="res://Assets/Santa Clarke/IMG_2511.PNG" id="11_sxehy"]
+[ext_resource type="Texture2D" uid="uid://cilm7aal2qk2u" path="res://Assets/Santa Clarke/IMG_2512.PNG" id="12_4l7g2"]
+[ext_resource type="Texture2D" uid="uid://bj45w6nf5llva" path="res://Assets/Santa Clarke/IMG_2513.PNG" id="13_q5p4j"]
+[ext_resource type="Texture2D" uid="uid://cwjq18ireb2wx" path="res://Assets/Santa Clarke/IMG_2514.PNG" id="14_1jv40"]
+[ext_resource type="Texture2D" uid="uid://dx8i0y6meo65r" path="res://Assets/Santa Clarke/IMG_2515.PNG" id="15_or1wh"]
+[ext_resource type="Texture2D" uid="uid://dsx1or1ednydk" path="res://Assets/Santa Clarke/IMG_2516.PNG" id="16_gdfw1"]
+[ext_resource type="Texture2D" uid="uid://colppxr2b658f" path="res://Assets/Santa Clarke/IMG_2517.PNG" id="17_6ohfd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n2lr7"]
+shader = ExtResource("3_opi4k")
+shader_parameter/redness = 100.0
+shader_parameter/color1 = Vector4(1, 0, 0, 1)
+shader_parameter/color2 = Vector4(0.5, 0, 0.3, 1)
+shader_parameter/maxRedness = 0.6
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_07leb"]
+shader = ExtResource("2_7p3yx")
+shader_parameter/gold = Vector4(1, 0.9, 0, 1)
+shader_parameter/goldeness = 100.0
+shader_parameter/maxGoldeness = 0.4
+shader_parameter/shine_speed = 2.0
+shader_parameter/shine_intensity = 0.9
+shader_parameter/shine_hardness = 0.0
+shader_parameter/shine_size = 0.2
+shader_parameter/shine_frequency = 5.0
+shader_parameter/shine_slope = 1.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c3rek"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_uf7mw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_1l6bh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_cmaf6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_533np")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_sxehy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_4l7g2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_q5p4j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_1jv40")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_or1wh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_gdfw1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_6ohfd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i66mc"]
+radius = 53.06
+height = 134.84
+
+[node name="Test Face" type="Node2D" node_paths=PackedStringArray("bottle", "faceGraphics", "beard", "head", "collider", "sparkles", "droplets", "godrays", "doveEmitter")]
+script = ExtResource("1_hnvj2")
+bottle = NodePath("oil_bottle")
+faceGraphics = NodePath("Node2D")
+beard = NodePath("Node2D/beard")
+head = NodePath("Node2D/face")
+beardShader = ExtResource("2_7p3yx")
+headShader = ExtResource("3_opi4k")
+collider = NodePath("Node2D/Area2D")
+sparkles = NodePath("Node2D/beard/sparkle_emitter")
+droplets = NodePath("Node2D/face/DropletEmitter")
+godrays = NodePath("GodRays")
+godrayShader = ExtResource("4_adk06")
+doveEmitter = NodePath("Node2D/CPUParticles2D")
+frameCount = 11.0
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="face" type="Sprite2D" parent="Node2D"]
+material = SubResource("ShaderMaterial_n2lr7")
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("5_p046w")
+
+[node name="DropletEmitter" parent="Node2D/face" instance=ExtResource("6_x2d8l")]
+z_index = 2
+position = Vector2(0, -236.667)
+
+[node name="beard" type="AnimatedSprite2D" parent="Node2D"]
+z_index = 1
+material = SubResource("ShaderMaterial_07leb")
+scale = Vector2(0.13, 0.13)
+sprite_frames = SubResource("SpriteFrames_c3rek")
+
+[node name="sparkle_emitter" parent="Node2D/beard" instance=ExtResource("8_l71ci")]
+position = Vector2(0, 230)
+scale = Vector2(3, 3)
+color = Color(1, 1, 1, 0.890196)
+
+[node name="Area2D" type="Area2D" parent="Node2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
+shape = SubResource("CapsuleShape2D_i66mc")
+
+[node name="CPUParticles2D" parent="Node2D" instance=ExtResource("9_e40qe")]
+z_index = -2
+
+[node name="oil_bottle" parent="." instance=ExtResource("10_v3civ")]
+position = Vector2(-53, -333)
+
+[node name="GodRays" parent="." instance=ExtResource("11_1cp2n")]
+z_index = -2
+mouse_force_pass_scroll_events = false
+
+[connection signal="area_entered" from="Node2D/Area2D" to="." method="onOilHitHead"]

@@ -1,0 +1,125 @@
+[gd_scene load_steps=21 format=3 uid="uid://r4aodgp6cn55"]
+
+[ext_resource type="Script" path="res://main/face.gd" id="1_rrulm"]
+[ext_resource type="Shader" path="res://Shaders/Golden.gdshader" id="2_w0rdi"]
+[ext_resource type="Shader" path="res://Shaders/Redness.gdshader" id="3_qhi17"]
+[ext_resource type="Shader" path="res://Shaders/thelightofgodskingdom.gdshader" id="4_wqege"]
+[ext_resource type="Texture2D" uid="uid://4i0tlaegpybj" path="res://Assets/Mr. Feebeck/IMG_1181.PNG" id="5_7hdqj"]
+[ext_resource type="PackedScene" uid="uid://bqmqcf0mqmjpj" path="res://main/droplet_emitter.tscn" id="6_5174o"]
+[ext_resource type="Texture2D" uid="uid://bilsycmlcpgkq" path="res://Assets/Mr. Feebeck/IMG_1182.PNG" id="7_n0d5o"]
+[ext_resource type="Texture2D" uid="uid://nxrlwi1k8wcj" path="res://Assets/Mr. Feebeck/IMG_1183.PNG" id="8_i72sx"]
+[ext_resource type="Texture2D" uid="uid://jqn4h1s0sjyg" path="res://Assets/Mr. Feebeck/IMG_1184.PNG" id="9_mt5bd"]
+[ext_resource type="Texture2D" uid="uid://bgb8x0aodib5x" path="res://Assets/Mr. Feebeck/IMG_1185.PNG" id="10_qnd20"]
+[ext_resource type="Texture2D" uid="uid://tqw8pvnn0hcd" path="res://Assets/Mr. Feebeck/IMG_1186.PNG" id="11_usj5b"]
+[ext_resource type="Texture2D" uid="uid://r2ag3xjbnpd0" path="res://Assets/Mr. Feebeck/IMG_1187.PNG" id="12_y4hwh"]
+[ext_resource type="PackedScene" uid="uid://cog06iq8eby1r" path="res://main/sparkle_emitter.tscn" id="14_q0w4h"]
+[ext_resource type="PackedScene" uid="uid://c8vex0imoodec" path="res://Assets/dove_emitter.tscn" id="15_ss3ts"]
+[ext_resource type="PackedScene" uid="uid://m0ber3xwknd5" path="res://main/oil_bottle.tscn" id="16_2lhxx"]
+[ext_resource type="PackedScene" uid="uid://dty83indh14c2" path="res://main/god_rays.tscn" id="17_3jgnb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n2lr7"]
+shader = ExtResource("3_qhi17")
+shader_parameter/redness = 100.0
+shader_parameter/color1 = Vector4(1, 0, 0, 1)
+shader_parameter/color2 = Vector4(0.5, 0, 0.3, 1)
+shader_parameter/maxRedness = 0.6
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_07leb"]
+shader = ExtResource("2_w0rdi")
+shader_parameter/gold = Vector4(1, 0.9, 0, 1)
+shader_parameter/goldeness = 100.0
+shader_parameter/maxGoldeness = 0.4
+shader_parameter/shine_speed = 2.0
+shader_parameter/shine_intensity = 0.9
+shader_parameter/shine_hardness = 0.0
+shader_parameter/shine_size = 0.2
+shader_parameter/shine_frequency = 5.0
+shader_parameter/shine_slope = 1.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qw65h"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_n0d5o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_i72sx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_mt5bd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_qnd20")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_usj5b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_y4hwh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i66mc"]
+radius = 53.06
+height = 134.84
+
+[node name="Test Face" type="Node2D" node_paths=PackedStringArray("bottle", "faceGraphics", "beard", "head", "collider", "sparkles", "droplets", "godrays", "doveEmitter")]
+script = ExtResource("1_rrulm")
+bottle = NodePath("oil_bottle")
+faceGraphics = NodePath("Node2D")
+beard = NodePath("Node2D/beard")
+head = NodePath("Node2D/face")
+beardShader = ExtResource("2_w0rdi")
+headShader = ExtResource("3_qhi17")
+collider = NodePath("Node2D/Area2D")
+sparkles = NodePath("Node2D/beard/sparkle_emitter")
+droplets = NodePath("Node2D/face/DropletEmitter")
+godrays = NodePath("GodRays")
+godrayShader = ExtResource("4_wqege")
+doveEmitter = NodePath("Node2D/CPUParticles2D")
+frameCount = 6.0
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="face" type="Sprite2D" parent="Node2D"]
+material = SubResource("ShaderMaterial_n2lr7")
+position = Vector2(0, 40)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("5_7hdqj")
+
+[node name="DropletEmitter" parent="Node2D/face" instance=ExtResource("6_5174o")]
+z_index = 2
+position = Vector2(0, -236.667)
+
+[node name="beard" type="AnimatedSprite2D" parent="Node2D"]
+z_index = 1
+material = SubResource("ShaderMaterial_07leb")
+position = Vector2(0, 40)
+scale = Vector2(0.15, 0.15)
+sprite_frames = SubResource("SpriteFrames_qw65h")
+
+[node name="sparkle_emitter" parent="Node2D/beard" instance=ExtResource("14_q0w4h")]
+position = Vector2(0, 230)
+scale = Vector2(3, 3)
+color = Color(1, 1, 1, 0.890196)
+
+[node name="Area2D" type="Area2D" parent="Node2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
+shape = SubResource("CapsuleShape2D_i66mc")
+
+[node name="CPUParticles2D" parent="Node2D" instance=ExtResource("15_ss3ts")]
+z_index = -2
+
+[node name="oil_bottle" parent="." instance=ExtResource("16_2lhxx")]
+position = Vector2(-53, -333)
+
+[node name="GodRays" parent="." instance=ExtResource("17_3jgnb")]
+z_index = -2
+mouse_force_pass_scroll_events = false
+
+[connection signal="area_entered" from="Node2D/Area2D" to="." method="onOilHitHead"]

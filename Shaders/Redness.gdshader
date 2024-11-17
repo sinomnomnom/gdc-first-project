@@ -15,7 +15,7 @@ void fragment() {
 	} else{
 		mixColor = mix(color1,color2,(redness-50.)/50.);
 	}
-	COLOR = mix(tex_color,mixColor,clamp(redness/100.*maxRedness-(UV.y*.5),0.,1.))*(1.-redness/150.);
+	COLOR = mix(tex_color,mixColor,clamp(redness/100.*maxRedness-(UV.y*.5),0.,1.));
 	COLOR.a = tex_color.a;
 }
 

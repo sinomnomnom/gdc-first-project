@@ -12,7 +12,7 @@ var bloodRate = 15
 var goldRate = .5
 @export var bottle: oil_bottle
 @export var faceGraphics: Node2D
-@export var beard :Sprite2D
+@export var beard :AnimatedSprite2D
 @export var head :Sprite2D
 @export var beardShader : Shader
 @export var headShader : Shader
@@ -22,6 +22,7 @@ var goldRate = .5
 @export var godrays: ColorRect
 @export var godrayShader : Shader
 @export var doveEmitter : CPUParticles2D
+@export var frameCount : float
 var godrayMaterial
 var headMaterial
 var beardMaterial
@@ -55,6 +56,17 @@ func start():
 	goldeness = 0
 
 func _process(delta):
+	# Ensure frameCount is not zero to avoid division by zero
+	if frameCount > 0:
+		var divisor = int(goldeness / 100*frameCount)
+		if divisor != 0:
+			beard.frame = clampi(divisor,0,frameCount)
+		else:
+			# Handle the edge case where divisor is zero
+			beard.frame = 0 # or handle it as appropriate
+	else:
+		print("Error: frameCount cannot be zero!")
+
 	if won:
 		godrayalpha += delta/3
 		godrayMaterial.set_shader_parameter("alpha",godrayalpha)

@@ -10,7 +10,11 @@ var playerCount =0
 var maxplayers = 4
 var players = []
 var keys = []
-const TEST_FACE = preload("res://main/test_face.tscn")
+var faceIndex = 0
+var totalFaces = 3
+const Salzy = preload("res://main/Mr_Salzwedel.tscn")
+const Clarke = preload("res://main/Mr_Clarke.tscn")
+const Feebeck = preload("res://main/Mr_Feebeck.tscn")
 @onready var rich_text_label =$Panel/VBoxContainer/RichTextLabel
 @onready var popup_panel = $Panel/VBoxContainer/PopupPanel
 @onready var control = $"../Control"
@@ -34,7 +38,16 @@ func _input(event: InputEvent):
 			return
 		print("Instantiate!")
 		keys.append(event.keycode)
-		var head = TEST_FACE.instantiate()
+		var head
+		if(faceIndex == 0):
+			head = Salzy.instantiate()
+		if(faceIndex == 1):
+			head = Clarke.instantiate()
+		if(faceIndex == 2):
+			head = Feebeck.instantiate()
+		faceIndex += 1
+		if (faceIndex >= totalFaces):
+			faceIndex = 0
 		head.key = event.keycode
 		head.connect("winGame",endGame)
 		players.append(head)
