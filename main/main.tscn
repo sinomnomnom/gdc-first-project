@@ -1,6 +1,5 @@
-[gd_scene load_steps=5 format=3 uid="uid://ksx0feogn8wg"]
+[gd_scene load_steps=4 format=3 uid="uid://ksx0feogn8wg"]
 
-[ext_resource type="Script" path="res://main/Camera2D.gd" id="1_fhh88"]
 [ext_resource type="PackedScene" uid="uid://dn7upyw3qc08n" path="res://main/UI.tscn" id="2_hd3cp"]
 [ext_resource type="PackedScene" uid="uid://blnls8vjva7u4" path="res://main/control.tscn" id="3_jb7of"]
 [ext_resource type="Texture2D" uid="uid://b061xtpyypt6n" path="res://Assets/90a11364-ad9c-42b1-bdab-e2c40e3efd91.jpeg" id="4_ywhwo"]
@@ -8,7 +7,6 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-script = ExtResource("1_fhh88")
 
 [node name="UI" parent="." instance=ExtResource("2_hd3cp")]
 z_index = 2

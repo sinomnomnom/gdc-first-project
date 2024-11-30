@@ -3,7 +3,6 @@ extends Camera2D
 func _ready():
 	adjust_zoom()
 
-
 func adjust_zoom():
 	# Get the viewport size
 	var viewport_size = get_viewport().size
