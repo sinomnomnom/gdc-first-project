@@ -1,12 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://c41kqx4nh014j"]
+[gd_scene load_steps=16 format=3 uid="uid://c41kqx4nh014j"]
 
 [ext_resource type="Script" path="res://main/face.gd" id="1_g85n6"]
 [ext_resource type="Shader" path="res://Shaders/Golden.gdshader" id="2_trvqn"]
 [ext_resource type="Shader" path="res://Shaders/Redness.gdshader" id="3_13p4d"]
 [ext_resource type="Shader" path="res://Shaders/thelightofgodskingdom.gdshader" id="4_7js5b"]
-[ext_resource type="Texture2D" uid="uid://ddxpxwvcwkok6" path="res://Assets/Base Face.png" id="5_nrtdu"]
+[ext_resource type="Texture2D" uid="uid://dghxry2qtciq8" path="res://Assets/Mr. Yanosy/Mr. Yanosy/IMG_1854.PNG" id="5_l2mjh"]
 [ext_resource type="PackedScene" uid="uid://bqmqcf0mqmjpj" path="res://main/droplet_emitter.tscn" id="6_a40lj"]
-[ext_resource type="Texture2D" uid="uid://n8o8q11bhr1u" path="res://Assets/Beard.png" id="7_w1ir7"]
+[ext_resource type="Texture2D" uid="uid://cj7wq01353lgs" path="res://Assets/Mr. Yanosy/Mr. Yanosy/IMG_1849.PNG" id="7_8du0x"]
 [ext_resource type="PackedScene" uid="uid://cog06iq8eby1r" path="res://main/sparkle_emitter.tscn" id="8_x0jcy"]
 [ext_resource type="PackedScene" uid="uid://c8vex0imoodec" path="res://Assets/dove_emitter.tscn" id="9_dt757"]
 [ext_resource type="PackedScene" uid="uid://m0ber3xwknd5" path="res://main/oil_bottle.tscn" id="10_nipuj"]
@@ -31,6 +31,17 @@ shader_parameter/shine_size = 0.2
 shader_parameter/shine_frequency = 5.0
 shader_parameter/shine_slope = 1.0
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_cigve"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_8du0x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i66mc"]
 radius = 53.06
 height = 134.84
@@ -49,27 +60,30 @@ droplets = NodePath("Node2D/face/DropletEmitter")
 godrays = NodePath("GodRays")
 godrayShader = ExtResource("4_7js5b")
 doveEmitter = NodePath("Node2D/CPUParticles2D")
+frameCount = 1.0
 
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="face" type="Sprite2D" parent="Node2D"]
 material = SubResource("ShaderMaterial_n2lr7")
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("5_nrtdu")
+position = Vector2(-214.565, 132.62)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_l2mjh")
 
 [node name="DropletEmitter" parent="Node2D/face" instance=ExtResource("6_a40lj")]
 z_index = 2
-position = Vector2(0, -236.667)
+position = Vector2(1067.82, -858.1)
 
-[node name="beard" type="Sprite2D" parent="Node2D"]
+[node name="beard" type="AnimatedSprite2D" parent="Node2D"]
 z_index = 1
 material = SubResource("ShaderMaterial_07leb")
-position = Vector2(0, 50)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("7_w1ir7")
+position = Vector2(211, -50.145)
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_cigve")
+frame_progress = 0.577357
 
 [node name="sparkle_emitter" parent="Node2D/beard" instance=ExtResource("8_x0jcy")]
-position = Vector2(0, 230)
+position = Vector2(-1039.79, 527.49)
 scale = Vector2(3, 3)
 color = Color(1, 1, 1, 0.890196)
 

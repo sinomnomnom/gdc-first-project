@@ -11,10 +11,11 @@ var maxplayers = 4
 var players = []
 var keys = []
 var faceIndex = 0
-var totalFaces = 3
+var totalFaces = 4
 const Salzy = preload("res://main/Mr_Salzwedel.tscn")
 const Clarke = preload("res://main/Mr_Clarke.tscn")
 const Feebeck = preload("res://main/Mr_Feebeck.tscn")
+const Yanosy = preload("res://main/Mr_Yanosy.tscn")
 @onready var rich_text_label =$Panel/VBoxContainer/RichTextLabel
 @onready var popup_panel = $Panel/VBoxContainer/PopupPanel
 @onready var control = $"../Control"
@@ -45,6 +46,8 @@ func _input(event: InputEvent):
 			head = Clarke.instantiate()
 		if(faceIndex == 2):
 			head = Feebeck.instantiate()
+		if(faceIndex == 3):
+			head = Yanosy.instantiate()
 		faceIndex += 1
 		if (faceIndex >= totalFaces):
 			faceIndex = 0
