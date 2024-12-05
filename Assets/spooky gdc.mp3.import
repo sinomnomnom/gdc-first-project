@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dcstrlamoyxcq"
+path="res://.godot/imported/spooky gdc.mp3-e8cf94d7de9167751d237a65ae52eef8.mp3str"
+
+[deps]
+
+source_file="res://Assets/spooky gdc.mp3"
+dest_files=["res://.godot/imported/spooky gdc.mp3-e8cf94d7de9167751d237a65ae52eef8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

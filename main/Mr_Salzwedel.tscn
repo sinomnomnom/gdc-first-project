@@ -71,9 +71,8 @@ animations = [{
 radius = 53.06
 height = 134.84
 
-[node name="Test Face" type="Node2D" node_paths=PackedStringArray("bottle", "faceGraphics", "beard", "head", "collider", "sparkles", "droplets", "godrays", "doveEmitter")]
+[node name="Test Face" type="Node2D" node_paths=PackedStringArray("faceGraphics", "beard", "head", "collider", "sparkles", "droplets", "godrays", "doveEmitter")]
 script = ExtResource("1_ywhft")
-bottle = NodePath("")
 faceGraphics = NodePath("Node2D")
 beard = NodePath("Node2D/beard")
 head = NodePath("Node2D/face")
