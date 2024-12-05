@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ksx0feogn8wg"]
+[gd_scene load_steps=5 format=3 uid="uid://ksx0feogn8wg"]
 
 [ext_resource type="PackedScene" uid="uid://dn7upyw3qc08n" path="res://main/UI.tscn" id="2_hd3cp"]
 [ext_resource type="PackedScene" uid="uid://blnls8vjva7u4" path="res://main/control.tscn" id="3_jb7of"]
+[ext_resource type="AudioStream" uid="uid://ne0i1db1j23d" path="res://Assets/CARNIVAL Arcade OST! Want the Best Retro Game Music_ Hit Subscribe!.mp3" id="4_hrve8"]
 [ext_resource type="Texture2D" uid="uid://b061xtpyypt6n" path="res://Assets/90a11364-ad9c-42b1-bdab-e2c40e3efd91.jpeg" id="4_ywhwo"]
 
 [node name="Node2D" type="Node2D"]
@@ -18,3 +19,8 @@ visible = false
 z_index = -5
 scale = Vector2(2, 2)
 texture = ExtResource("4_ywhwo")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_hrve8")
+volume_db = 5.684
+autoplay = true
