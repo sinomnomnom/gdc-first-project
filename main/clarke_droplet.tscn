@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpunmjdbvpmoh"]
+
+[ext_resource type="Script" path="res://main/droplet.gd" id="1_ikt38"]
+[ext_resource type="Texture2D" uid="uid://d2mcpnhgurhjt" path="res://main/snowball.png" id="2_7txp3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ahgf"]
+size = Vector2(13, 26)
+
+[node name="droplet" type="Area2D"]
+script = ExtResource("1_ikt38")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_7txp3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_3ahgf")

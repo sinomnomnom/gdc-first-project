@@ -11,12 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://cog06iq8eby1r" path="res://main/sparkle_emitter.tscn" id="8_whnc1"]
 [ext_resource type="PackedScene" uid="uid://c8vex0imoodec" path="res://Assets/dove_emitter.tscn" id="9_1jcre"]
 [ext_resource type="Texture2D" uid="uid://cjnjlqd4s0apq" path="res://Assets/Mr. Salzwedel/IMG_0179.PNG" id="9_o5gk1"]
-[ext_resource type="PackedScene" uid="uid://m0ber3xwknd5" path="res://main/oil_bottle.tscn" id="10_03pww"]
 [ext_resource type="Texture2D" uid="uid://8eaf3go3xq3b" path="res://Assets/Mr. Salzwedel/IMG_0180.PNG" id="10_hg78f"]
 [ext_resource type="Texture2D" uid="uid://bp1ewc8un1pyy" path="res://Assets/Mr. Salzwedel/IMG_0181.PNG" id="11_4qo57"]
 [ext_resource type="PackedScene" uid="uid://dty83indh14c2" path="res://main/god_rays.tscn" id="11_nvt48"]
 [ext_resource type="Texture2D" uid="uid://crmv4ud47obbi" path="res://Assets/Mr. Salzwedel/IMG_0182.PNG" id="12_x48va"]
 [ext_resource type="Texture2D" uid="uid://b563e0prl1tdv" path="res://Assets/Mr. Salzwedel/IMG_0183.PNG" id="13_jaqlm"]
+[ext_resource type="PackedScene" uid="uid://b463viylxdcf4" path="res://main/salzwedel_bottle.tscn" id="17_tolkv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n2lr7"]
 shader = ExtResource("3_in3v1")
@@ -73,7 +73,7 @@ height = 134.84
 
 [node name="Test Face" type="Node2D" node_paths=PackedStringArray("bottle", "faceGraphics", "beard", "head", "collider", "sparkles", "droplets", "godrays", "doveEmitter")]
 script = ExtResource("1_ywhft")
-bottle = NodePath("oil_bottle")
+bottle = NodePath("")
 faceGraphics = NodePath("Node2D")
 beard = NodePath("Node2D/beard")
 head = NodePath("Node2D/face")
@@ -117,11 +117,11 @@ shape = SubResource("CapsuleShape2D_i66mc")
 [node name="CPUParticles2D" parent="Node2D" instance=ExtResource("9_1jcre")]
 z_index = -2
 
-[node name="oil_bottle" parent="." instance=ExtResource("10_03pww")]
-position = Vector2(-53, -333)
-
 [node name="GodRays" parent="." instance=ExtResource("11_nvt48")]
 z_index = -2
 mouse_force_pass_scroll_events = false
+
+[node name="oil_bottle2" parent="." instance=ExtResource("17_tolkv")]
+position = Vector2(-54, -334)
 
 [connection signal="area_entered" from="Node2D/Area2D" to="." method="onOilHitHead"]

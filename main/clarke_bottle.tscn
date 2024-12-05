@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://0jaw6xansxxo"]
+
+[ext_resource type="Script" path="res://main/oil_bottle.gd" id="1_6a8l6"]
+[ext_resource type="Texture2D" uid="uid://cxe84y806djmx" path="res://Assets/Santa Clarke/IMG_2519.PNG" id="2_5vxdb"]
+
+[node name="oil_bottle" type="Node2D" node_paths=PackedStringArray("spout", "sprite")]
+script = ExtResource("1_6a8l6")
+spout = NodePath("Sprite2D/Node2D")
+sprite = NodePath("Sprite2D")
+oil = "res://main/clarke_droplet.tscn"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(-7, 62)
+rotation = -6.15229
+scale = Vector2(0.165816, 0.159104)
+texture = ExtResource("2_5vxdb")
+offset = Vector2(0, 200)
+flip_h = true
+
+[node name="Node2D" type="Node2D" parent="Sprite2D"]
+position = Vector2(19.0113, -427.35)
+scale = Vector2(0.1, 0.1)
